@@ -1,0 +1,95 @@
+<html> 
+    <head>
+        <title> PPM </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <h1> Create an Acount today </h1>
+        <center>
+        <div class="container" id="HH"> 
+            <label> First Name: </label>
+            <input type="text" class="form-group" placeholder="First Name" id="FN">
+            <br>
+            <br>
+            <label> Last Name: </label>
+            <input type="text" class="form-group" placeholder="Last Name" id="LN">
+            <br>
+            <br>
+            <label> UserName: </label>
+            <input type="text" class="form-group" placeholder="Username" id="User">
+            <br>
+            <br>
+            <label> Password </label>
+            <input type="password" class="form-group" placeholder="Password" id="Pass">
+            <br>
+            <input onclick="Show()" type="checkbox"> Show Password
+            <br>
+            <br>
+            <label> Birthday </label>
+            <input type="date" class="form-group" id="BD">
+            <br>
+            <br>
+            <button onclick="submit()" class="btn btn-success"> Submit </button>
+
+        </div>
+        </center>
+    </body>
+    <style>
+        h1{
+            font-size: 62.5px;
+            text-align: center;
+            color: cadetblue;
+        }
+
+        body{
+            font-family: 'Cedarville Cursive', cursive;
+            background-color: darkblue;
+            color: red;
+            font-size: 20px;
+        }
+       
+    </style>
+    <script>
+        function submit()
+        {
+            var a = document.getElementById("FN").value;
+            var b = document.getElementById("LN").value;
+            var c = document.getElementById("User").value;
+            var d = document.getElementById("Pass").value;
+            var e = document.getElementById("BD").value;
+
+            console.log("First Name : " + a);
+            localStorage.setItem("First Name", a);
+
+            console.log("Last Name : " + b);
+            localStorage.setItem("Last Name", b);
+
+            console.log("Username : " + c);
+            localStorage.setItem("Username", c);
+
+            console.log("Password : " + d);
+            localStorage.setItem("Password", d);
+
+            console.log("Birthday : " + e);
+            localStorage.setItem("Birthday", e);
+
+            window.location = "index.html";
+        }
+        function Show()
+        {
+            var x = document.getElementById("Pass")
+            if( x.type == "text")
+            {
+                x.type = "password"
+            }else{
+                x.type = "text"
+            }
+        }
+    </script>
+</html>

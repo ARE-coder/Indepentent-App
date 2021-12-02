@@ -1,0 +1,140 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>   
+    </head>
+    <body onload="add()">
+        <h2 id="score" class="b"></h2>
+        <h1 id="hello" style="text-align: center;"> </h1>
+        <center>
+         <iframe width="900" height="506" src="https://www.youtube.com/embed/rR95Cbcjzus" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen id="Video" onplay="STS()"></iframe>
+         <br>
+         <button id="add" class="btn btn-link" onclick="Stop()" >Did you watch the video before? </button>
+
+         <p id="P" class="a"> </p> &nbsp; <p id="OF" class="a">of</p>  <p id="WN" class="a"> </p>
+         <br>
+         <br>
+         <br>
+        
+         <input type="number" placeholder="Please type the Answer in here." class="form-group" id="Answer" style="display: none;" oninput= "document.getElementById('AA').style.display = 'block'"> &nbsp; <p id="checker" class="b"></p>
+         <br>
+         <br>
+         <br>
+         <button class="glyphicon glyphicon-ok btn btn-success" onclick="Check()" style="display: none;" id="AA">  Check </button>
+        </center>
+    </body>
+    <style>
+        body{
+            background-image: url("realistic-math-chalkboard-background_23-2148154055.jpg");
+            background-position: center;
+            background-size: cover;
+        }
+        h1{
+            color:royalblue;
+        }
+        .a{
+            font-size:24px;
+            display: none;
+            color:skyblue;
+        }
+        .b{
+            font-size: 20px;
+            color:cornflowerblue;
+        }
+
+    </style>
+    <script>
+        var b;
+        var a = localStorage.getItem("First Name")
+        var c = Math.floor(Math.random()*100)+1
+            var d = Math.floor(Math.random()*1000)+1
+        function add()
+        {
+            var a = localStorage.getItem("First Name")
+            document.getElementById("hello").innerHTML = "Hello "+ a + "!"
+            window.alert( "Welcome to Percentage Prime Mover, " + a + "\n Where we give you percent problems\n please watch the folowing video.");
+
+        }
+        function STS()
+        {
+            var b = setTimeout(function(){ 
+
+                document.getElementById("Video").style.display = "none"
+                window.alert("As you have seen in the video\n This is how you calculate a percentage of a number.\n\n Let's Begin, " + a )
+                document.getElementById("P").style.display = "Block"
+                document.getElementById("Answer").style.display = "Block"
+                document.getElementById("WN").style.display = "Block"
+                document.getElementById("add").style.display = "none"
+
+                
+            },457000)
+        }
+        function Stop()
+        {
+            window.alert("You can start solving the question\n But Be aware as you have 5 minute to solve a question\n Good Luck 👍");
+            clearTimeout(b);
+            document.getElementById("Video").style.display = "none"
+            document.getElementById("Answer").style.display = "block"
+            document.getElementById("P").style.display = "block"
+            document.getElementById("WN").style.display = "block"
+            document.getElementById("add").style.display = "none"
+            document.getElementById("OF").style.display = "block"
+            window.alert("Please wait for 5 minute for the question to appear.\n Thank you ")
+
+            
+                
+
+        }
+        function Percent()
+        {
+            
+            
+
+             document.getElementById("P").innerHTML = c + "%";
+             document.getElementById("WN").innerHTML = d;
+
+             
+
+
+
+             
+             
+        }
+        setInterval(function()
+        {
+            Percent();
+            
+
+        },300000);
+        function Check()
+        {
+            
+            var b = document.getElementById("Answer").value;
+            var a = (d/100)*c;
+            var x = 0;
+            var y = " ";
+            if ( b == a )
+            {
+                console.log( + ")" + b + "Correct, Answer is " + a );
+                document.getElementById("checker").innerHTML = "You got it right, " + a
+                var scorep = x + 10;
+                document.getElementById("score").innerHTML = x;
+                console.log(scorep)
+
+            }else if ( b ==! a ) {
+                console.log( + ")" + b + "Wrong, Answer is " + a + ", you lost 10 point" );
+                document.getElementById("checker").innerHTML = "You got it wrong, so you lost 10 point, the answer is " + a
+                var scorem = x - 10;
+                console.log(scorem);
+                
+            }else if ( b === null )
+            {
+                document.getElementById("checker").innerHTML = "Please fill the answer box";
+
+            }
+        }
+
+    </script>
+</html>

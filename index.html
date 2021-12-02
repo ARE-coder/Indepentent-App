@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>   
+    </head>
+    <body>
+        <h1 style="text-align: center;"> Login </h1>
+        <center>
+            <div id="LOGIN">
+                <h3> Welcome to Percentage Prime Mover </h3>
+                 <br>
+                  <h6> Where you can solve pecent of something</h6>
+                  <br>
+                  <br>
+                  Username:
+                  <input id="user" type="text" class="form-group" placeholder="Type the Username"> 
+                  <br>
+                  Password:
+                  <input id="pass" type="password" class="form-group" placeholder="Type the Password">
+                  <br>
+                  <input type="checkbox" id="Show" onclick="Show()"> Show password
+                  <br>
+                  <br>
+                  <button id="send" class="btn btn-success" onclick="check()"> Submit </button> &nbsp; 
+               <button id="hh" style="background-color: rgb(39, 28, 136);"> <a href="CA.html"> Don't Have and account? Sign Up </a> </button>
+
+            </div>
+        </center>
+    </body>
+    <style>
+        #login{
+            color:cadetblue;
+            background-color: rgb(39, 28, 136);
+            top:blue;
+            width: 700px;
+        }
+        body{
+            background-color: darkcyan;
+        }
+
+    </style>
+    <script>
+        function check()
+        {
+            var a = localStorage.getItem("Username");
+            var b = localStorage.getItem("Password");
+            var c = document.getElementById("user").value;
+            var d = document.getElementById("pass").value;
+            if (a == undefined && b == undefined)
+            {
+                window.alert("You don't have an account\n Please create an account\n Thank you");
+                document.getElementById("hh").style.border = "red";
+                document.getElementById("hh").style.borderWidth = 10;
+
+                
+            }else if (a != c && b != d )  
+            {
+                window.alert("Incorrect,\n The Username or password is incorrect, Please try again\n Thank you");
+                document.getElementById("user").style.border = "red";
+                document.getElementById("pass").style.border = "red";
+            } else if (c == null && d == null) {
+                window.alert("This is required");
+                document.getElementById("user").style.border = "red";
+                document.getElementById("pass").style.border = "red";
+                document.getElementById("user").placeholder = "reqiured";
+                document.getElementById("pass").placeholder = "reqiured";
+            }else if ( a == c && b == d ){
+                window.location = "index.html"
+            }
+            
+        }
+        function Show()
+        {
+            var x = document.getElementById("pass");
+         if (x.type === "password") {
+         x.type = "text";
+         } else {
+          x.type = "password";
+          }
+        }
+    </script>
+    </html>
